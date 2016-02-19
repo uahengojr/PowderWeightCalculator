@@ -22,7 +22,7 @@ function varargout = WeightCalculator(varargin)
 
 % Edit the above text to modify the response to help WeightCalculator
 
-% Last Modified by GUIDE v2.5 11-Feb-2016 14:54:11
+% Last Modified by GUIDE v2.5 18-Feb-2016 18:36:05
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -45,7 +45,7 @@ end
 
 
 % --- Executes just before WeightCalculator is made visible.
-function WeightCalculator_OpeningFcn(hObject, eventdata, handles, varargin)
+function WeightCalculator_OpeningFcn(hObject, ~, handles, varargin)
 % This function has no output args, see OutputFcn.
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -63,7 +63,7 @@ guidata(hObject, handles);
 
 
 % --- Outputs from this function are returned to the command line.
-function varargout = WeightCalculator_OutputFcn(hObject, eventdata, handles) 
+function varargout = WeightCalculator_OutputFcn(hObject, ~, handles) 
 % varargout  cell array for returning output args (see VARARGOUT);
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -74,18 +74,28 @@ varargout{1} = handles.output;
 
 
 
-function edit1_Callback(hObject, eventdata, handles)
-% hObject    handle to edit1 (see GCBO)
+
+function thickness_Callback(hObject, ~, handles)
+% hObject    handle to thickness (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'String') returns contents of edit1 as text
-%        str2double(get(hObject,'String')) returns contents of edit1 as a double
+% Hints: get(hObject,'String') returns contents of thickness as text
+%        str2double(get(hObject,'String')) returns contents of thickness as a double
+global sample_thickness;
+sample_thickness = str2double(get(hObject,'string'));
+if isnan(sample_thickness)
+  errordlg('You must enter a numeric value','Invalid Input','modal')
+  uicontrol(hObject)
+  return
+else
+  display(sample_thickness);
+end
 
 
 % --- Executes during object creation, after setting all properties.
-function edit1_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to edit1 (see GCBO)
+function thickness_CreateFcn(hObject, ~, handles)
+% hObject    handle to thickness (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -96,19 +106,26 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
-
-function edit2_Callback(hObject, eventdata, handles)
-% hObject    handle to edit2 (see GCBO)
+function density_Callback(hObject, ~, handles)
+% hObject    handle to thickness (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'String') returns contents of edit2 as text
-%        str2double(get(hObject,'String')) returns contents of edit2 as a double
-
+% Hints: get(hObject,'String') returns contents of thickness as text
+%        str2double(get(hObject,'String')) returns contents of thickness as a double
+global density;
+density = str2double(get(hObject,'string'));
+if isnan(density)
+  errordlg('You must enter a numeric value','Invalid Input','modal')
+  uicontrol(hObject)
+  return
+else
+  display(density);
+end
 
 % --- Executes during object creation, after setting all properties.
-function edit2_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to edit2 (see GCBO)
+function density_CreateFcn(hObject, ~, handles)
+% hObject    handle to density (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -118,20 +135,26 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
     set(hObject,'BackgroundColor','white');
 end
 
-
-
-function edit3_Callback(hObject, eventdata, handles)
-% hObject    handle to edit3 (see GCBO)
+function diameter_Callback(hObject, ~, handles)
+% hObject    handle to diameter (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'String') returns contents of edit3 as text
-%        str2double(get(hObject,'String')) returns contents of edit3 as a double
-
+% Hints: get(hObject,'String') returns contents of diameter as text
+%        str2double(get(hObject,'String')) returns contents of diameter as a double
+global diameter;
+diameter = str2double(get(hObject,'string'));
+if isnan(diameter)
+  errordlg('You must enter a numeric value','Invalid Input','modal')
+  uicontrol(hObject)
+  return
+else
+  display(diameter);
+end
 
 % --- Executes during object creation, after setting all properties.
-function edit3_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to edit3 (see GCBO)
+function diameter_CreateFcn(hObject, ~, handles)
+% hObject    handle to density (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -141,20 +164,26 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
     set(hObject,'BackgroundColor','white');
 end
 
-
-
-function edit4_Callback(hObject, eventdata, handles)
-% hObject    handle to edit4 (see GCBO)
+function atom_number_Callback(hObject, ~, handles)
+% hObject    handle to atom_number (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'String') returns contents of edit4 as text
-%        str2double(get(hObject,'String')) returns contents of edit4 as a double
-
+% Hints: get(hObject,'String') returns contents of atom_number as text
+%        str2double(get(hObject,'String')) returns contents of atom_number as a double
+global number_of_atoms;
+number_of_atoms = str2double(get(hObject,'string'));
+if isnan(number_of_atoms)
+  errordlg('You must enter a numeric value','Invalid Input','modal')
+  uicontrol(hObject)
+  return
+else
+  display(number_of_atoms);
+end
 
 % --- Executes during object creation, after setting all properties.
-function edit4_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to edit4 (see GCBO)
+function atom_number_CreateFcn(hObject, ~, handles)
+% hObject    handle to atom_number (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -166,14 +195,18 @@ end
 
 
 % --- Executes on button press in pushbutton1.
-function pushbutton1_Callback(hObject, eventdata, handles)
+function pushbutton1_Callback(hObject, ~, handles)
 % hObject    handle to pushbutton1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+display(number_of_atoms);
 
 
 % --- Executes on button press in pushbutton2.
-function pushbutton2_Callback(hObject, eventdata, handles)
+function pushbutton2_Callback(hObject, ~, handles)
 % hObject    handle to pushbutton2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+display('Resert Button Pressed');
+
+
