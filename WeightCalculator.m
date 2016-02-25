@@ -22,7 +22,7 @@ function varargout = WeightCalculator(varargin)
 
 % Edit the above text to modify the response to help WeightCalculator
 
-% Last Modified by GUIDE v2.5 18-Feb-2016 18:36:05
+% Last Modified by GUIDE v2.5 18-Feb-2016 20:35:34
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -199,14 +199,26 @@ function pushbutton1_Callback(hObject, ~, handles)
 % hObject    handle to pushbutton1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-display('Calcualte Button Pressed');
 
+% display(get(hObject));
+
+display(handles);
+
+%%display(handles.density);
+%%display(handles.diameter);
+%%display(handles.atom_number);
+%%display(handles.thickness);
+
+ a = num2str(get(handles.density, 'String'));
+ display(a)
+ set(handles.text6,'String', a)
+ guidata(hObject, handles);
+ 
 
 % --- Executes on button press in pushbutton2.
 function pushbutton2_Callback(hObject, ~, handles)
 % hObject    handle to pushbutton2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+set(handles.text6, 'String', 'Mass (g)');
 display('Reset Button Pressed');
-
-
