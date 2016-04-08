@@ -83,7 +83,7 @@ function thickness_Callback(hObject, ~, handles)
 % Hints: get(hObject,'String') returns contents of thickness as text
 %        str2double(get(hObject,'String')) returns contents of thickness as a double
 global sample_thickness;
-sample_thickness = str2double(get(hObject,'string'));
+sample_thickness = str2double(get(hObject,'String'));
 if isnan(sample_thickness)
   errordlg('You must enter a numeric value','Invalid Input','modal')
   uicontrol(hObject)
@@ -114,7 +114,7 @@ function density_Callback(hObject, ~, handles)
 % Hints: get(hObject,'String') returns contents of thickness as text
 %        str2double(get(hObject,'String')) returns contents of thickness as a double
 global density;
-density = str2double(get(hObject,'string'));
+density = str2double(get(hObject,'String'));
 if isnan(density)
   errordlg('You must enter a numeric value','Invalid Input','modal')
   uicontrol(hObject)
@@ -143,7 +143,7 @@ function diameter_Callback(hObject, ~, handles)
 % Hints: get(hObject,'String') returns contents of diameter as text
 %        str2double(get(hObject,'String')) returns contents of diameter as a double
 global diameter;
-diameter = str2double(get(hObject,'string'));
+diameter = str2double(get(hObject,'String'));
 if isnan(diameter)
   errordlg('You must enter a numeric value','Invalid Input','modal')
   uicontrol(hObject)
@@ -172,7 +172,7 @@ function atom_number_Callback(hObject, ~, handles)
 % Hints: get(hObject,'String') returns contents of atom_number as text
 %        str2double(get(hObject,'String')) returns contents of atom_number as a double
 global number_of_atoms;
-number_of_atoms = str2double(get(hObject,'string'));
+number_of_atoms = str2double(get(hObject,'String'));
 if isnan(number_of_atoms)
   errordlg('You must enter a numeric value','Invalid Input','modal')
   uicontrol(hObject)
@@ -202,16 +202,20 @@ function pushbutton1_Callback(hObject, ~, handles)
 
 % display(get(hObject));
 
-display(handles);
+%display(handles);
 
 %%display(handles.density);
 %%display(handles.diameter);
 %%display(handles.atom_number);
 %%display(handles.thickness);
 
- a = num2str(get(handles.density, 'String'));
- display(a)
- set(handles.text6,'String', a)
+ %%Calls the density function to compute and return the density.
+ display(DensityFunction(handles));
+ 
+ a = num2str(get(handles.density, 'String')); 
+ display(a);
+ 
+ set(handles.text6,'String', a);
  guidata(hObject, handles);
  
 
