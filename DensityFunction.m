@@ -7,8 +7,9 @@ diameter = str2double(get(input_args.diameter, 'String'));
 atom_number = str2double(get(input_args.atom_number, 'String'));
 thickness = str2double(get(input_args.thickness, 'String'));
 
+density = density * 100.00;
 
-density = density * 100.00;gahe001
+%%Volume calculations
 
 output_args = density;
 
