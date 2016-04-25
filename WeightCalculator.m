@@ -73,8 +73,6 @@ function varargout = WeightCalculator_OutputFcn(hObject, ~, handles)
 varargout{1} = handles.output;
 
 
-
-
 function thickness_Callback(hObject, ~, handles)
 % hObject    handle to thickness (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -89,7 +87,7 @@ if isnan(sample_thickness)
   uicontrol(hObject)
   return
 else
-  display(sample_thickness);
+ % display(sample_thickness);  %%This would normally display in console.
 end
 
 
@@ -120,7 +118,7 @@ if isnan(density)
   uicontrol(hObject)
   return
 else
-  display(density);
+  %display(density);  %%This would normally display in console.
 end
 
 % --- Executes during object creation, after setting all properties.
@@ -149,7 +147,7 @@ if isnan(diameter)
   uicontrol(hObject)
   return
 else
-  display(diameter);
+ % display(diameter); %%This would normally display in console.
 end
 
 % --- Executes during object creation, after setting all properties.
@@ -178,7 +176,7 @@ if isnan(number_of_atoms)
   uicontrol(hObject)
   return
 else
-  display(number_of_atoms);
+  %display(number_of_atoms);  %%This would normally display in console.
 end
 
 % --- Executes during object creation, after setting all properties.
@@ -200,22 +198,17 @@ function pushbutton1_Callback(hObject, ~, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% display(get(hObject));
-
 %display(handles);
-
 %%display(handles.density);
-%%display(handles.diameter);
+%display(handles.diameter);
 %%display(handles.atom_number);
 %%display(handles.thickness);
 
  %%Calls the density function to compute and return the density.
- display(DensityFunction(handles));
+ mass = num2str(DensityFunction(handles));
+  %display(mass);
  
- a = num2str(get(handles.density, 'String')); 
- display(a);
- 
- set(handles.text6,'String', a);
+ set(handles.text6,'String', mass);
  guidata(hObject, handles);
  
 
@@ -225,4 +218,9 @@ function pushbutton2_Callback(hObject, ~, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 set(handles.text6, 'String', 'Mass (g)');
+set(handles.density, 'String', 0);
+set(handles.atom_number, 'String', 0);
+set(handles.diameter, 'String', 0);
+set(handles.thickness, 'String', 0);
+
 display('Reset Button Pressed');
