@@ -7,11 +7,22 @@ diameter = str2double(get(input_args.diameter, 'String'));
 atom_number = str2double(get(input_args.atom_number, 'String'));
 thickness = str2double(get(input_args.thickness, 'String'));
 
-density = density * 100.00;
+%%Constants
+Navgadro = 6.0220e+23;
 
 %%Volume calculations
+vol = (pi)*((diameter/2)^2)*(thickness);
 
-output_args = density;
+%%Atomic weight calcuations.
+atomic_weight = ((density *vol * Navgadro)/(atom_number));
+
+%%Mole calculations
+moles = (atom_number / Navgadro);
+
+%%Required mass in grams.
+mass = moles * atomic_weight;
+
+output_args = mass;
 
 end
 
