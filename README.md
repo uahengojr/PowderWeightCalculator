@@ -10,7 +10,7 @@ This program requires MatLab2016a install on your machine. Load the file into yo
 * _Diameter (cm)_ - graphite die diameter.  
 * _Atom #_ - Number of atoms in unit cell.
 
-Made with <3 in L.A.
+Made with :heart: in L.A.
 
 
 
