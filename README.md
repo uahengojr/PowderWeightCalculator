@@ -1,4 +1,5 @@
 # PowderWeightCalculator
 
- This repo contains MatLab code that implementing theroretical density computaion
- required mass(g) of nano powders. 
+ This repo contains MatLab code implementing theoretical density computaion based off a desired CAPAD produced pellet/sample thicknes (height). 
+ 
+ 
