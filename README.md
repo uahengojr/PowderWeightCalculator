@@ -8,9 +8,9 @@ This program requires MatLab2016a install on your machine. Load the file into yo
 * _Thickness (cm)_ - desired sample thickness.  
 * _Density (g/cm^3)_ - density of the nano-powder chemical compound.  
 * _Diameter (cm)_ - graphite die diameter.  
-* _Atom #_ - Number of atoms in unit cell. 
- 
- Made with <3 in L.A.
+* _Atom #_ - Number of atoms in unit cell.
+
+Made with <3 in L.A.
 
 
 
